@@ -1,3 +1,8 @@
+# List is a collection which is ordered and changeable. Allows duplicate members.
+# Tuple is a collection which is ordered and unchangeable. Allows duplicate members.
+# Set is a collection which is unordered and unindexed. No duplicate members.
+# Dictionary is a collection which is ordered* and changeable. No duplicate members.
+
 first_list = [2, 3, 4, 5, 6, 7, 8, 9]
 
 # Conditional loop
@@ -17,7 +22,7 @@ def linear_search(list, el):
     return str(el) + " is not present in list"
 
 # Is an entire string included in another string
-def is_included(str1, str2):
+def is_str_included(str1, str2):
     if (len(str1) < 1 or len(str2) < 1):
         return False
 
@@ -28,7 +33,7 @@ def is_included(str1, str2):
 
 print('conditional_loop: ', conditional_loop(first_list, 5))
 print('linear_search: ', linear_search(first_list, 211))
-print('is_included: ', is_included('th', 'thssii'))
+print('is_included: ', is_str_included('th', 'thssii'))
 
 print('====================================================')
 
@@ -87,5 +92,34 @@ print('has_duplicate2: ', has_duplicate2(sec_list))
 print('has_duplicate3: ', has_duplicate3(sec_list))
 print('show_duplicates: ', show_duplicates(sec_list))
 print('remove_duplicates: ', remove_duplicates(third_list))
+
+print('====================================================')
+
+first_dict = {
+    "name": "tom",
+    "job": "Dev",
+    "years exp": 3,
+    "languages": ["python", "JavaScript", "Go"]
+}
+
+def get_value_from_key(dict, key):
+    return dict[key]
+
+def show_all_keys(dict):
+    return dict.keys()
+
+def show_all_values(dict):
+    return dict.values()
+
+def update_dict_entry(dict, entry):
+    if type(entry) is not type(dict): return 'entry arg must be a dictionary'
+    dict.update(entry)
+    return dict
+
+
+print('get_value_from_dic: ', get_value_from_key(first_dict, 'job'))
+print('show_all_keys: ', show_all_keys(first_dict))
+print('show_all_values: ', show_all_values(first_dict))
+print('update_dict_entry: ', update_dict_entry(first_dict, {"favourite food": "pizza"} ))
 
 print('====================================================')
