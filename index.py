@@ -157,22 +157,32 @@ print(user1.show_instance_attributes())
 print(user1.update_attribute('name', 'joe'))
 
 class SportClimber:
-    climber_type = 'sport'                          # class attributes
+    climber_type = 'sport'                              # class attributes
 
     def __init__(self, name, highest_grade, shoes): 
-        self.name = name                            # instance attributes
+        self.name = name                                # instance attributes, passed in when creating new instance
         self.highest_grade = highest_grade
         self.shoes = shoes
     
     @staticmethod
-    def show_climber_type():                        # static method
-        return SportClimber.climber_type + ' climber'
+    def show_climber_type():                            # static method, dont need self passed in, can access class attr.
+        return SportClimber.climber_type + ' climber'   # cannot access instance attr. or anything on the self variable
 
-    def show_favourite_shoes(self):                 # non-static method/instance method
+    @classmethod
+    def show_climber_type_from_class(cls):              # class method, takes class instance as first arg 'cls', can be called in or on the class
+        return cls.climber_type + ' climber'            # ie. SportClimber.show_climber_type_from_class() == SportClimber().show_climber_type_from_class
+                                                        # can access class attr., cannot access instance attr.
+                                                        # can have logic that requires specific info from the class instance data
+
+    def show_favourite_shoes(self):                     # non-static method/instance method, need self passed in to access instance attr.
         return self.shoes
+    
 
 
 sportClimber1 = SportClimber('Tom', '5.11d', 'Skwamas')
 
 print(sportClimber1.show_climber_type())
+print(sportClimber1.show_climber_type_from_class())
 print(sportClimber1.show_favourite_shoes())
+
+print('====================================================')
