@@ -139,13 +139,15 @@ class User:
     def show_email_password(self):
         return (f'{self.email} {self.password}')
 
+    # shows all attributes set to this instance
     def show_instance_attributes(self):
         return self.__dict__
     
-    def update_attribute(self, attribute, new_property):
+    # update a specific instance attribute with a new value
+    def update_attribute(self, attribute, new_value):
         for attr in self.__dict__:
             if attribute == attr:
-                self.__dict__[attr] = new_property
+                self.__dict__[attr] = new_value
         return self.__dict__
 
 user1 = User('tom', 'tom@example.com', '123456')
@@ -153,3 +155,24 @@ user1 = User('tom', 'tom@example.com', '123456')
 print(user1.show_email_password())
 print(user1.show_instance_attributes())
 print(user1.update_attribute('name', 'joe'))
+
+class SportClimber:
+    climber_type = 'sport'                          # class attributes
+
+    def __init__(self, name, highest_grade, shoes): 
+        self.name = name                            # instance attributes
+        self.highest_grade = highest_grade
+        self.shoes = shoes
+    
+    @staticmethod
+    def show_climber_type():                        # static method
+        return SportClimber.climber_type + ' climber'
+
+    def show_favourite_shoes(self):                 # non-static method/instance method
+        return self.shoes
+
+
+sportClimber1 = SportClimber('Tom', '5.11d', 'Skwamas')
+
+print(sportClimber1.show_climber_type())
+print(sportClimber1.show_favourite_shoes())
