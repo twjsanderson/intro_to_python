@@ -123,3 +123,33 @@ print('show_all_values: ', show_all_values(first_dict))
 print('update_dict_entry: ', update_dict_entry(first_dict, {"favourite food": "pizza"} ))
 
 print('====================================================')
+
+# User class
+# self variable is like 'this', represents the instance of the object (ie. class) itself
+# self can be called anything, but convention is to name it 'self'
+# __init__ is like a constructor function in JavaScript
+class User:
+
+    def __init__(self, name, email, password):
+        self.name = name
+        self.email = email
+        self.password = password
+
+    # must pass self into the function to use properties inside __init__ 
+    def show_email_password(self):
+        return (f'{self.email} {self.password}')
+
+    def show_instance_attributes(self):
+        return self.__dict__
+    
+    def update_attribute(self, attribute, new_property):
+        for attr in self.__dict__:
+            if attribute == attr:
+                self.__dict__[attr] = new_property
+        return self.__dict__
+
+user1 = User('tom', 'tom@example.com', '123456')
+
+print(user1.show_email_password())
+print(user1.show_instance_attributes())
+print(user1.update_attribute('name', 'joe'))
