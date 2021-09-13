@@ -177,8 +177,6 @@ class SportClimber:
     def show_favourite_shoes(self):                     # non-static method/instance method, need self passed in to access instance attr.
         return self.shoes
     
-
-
 sportClimber1 = SportClimber('Tom', '5.11d', 'Skwamas')
 
 print(sportClimber1.show_climber_type())
@@ -186,3 +184,7 @@ print(sportClimber1.show_climber_type_from_class())
 print(sportClimber1.show_favourite_shoes())
 
 print('====================================================')
+
+# Inheritance
+# todo list
+
